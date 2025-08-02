@@ -1,0 +1,398 @@
+body {
+  margin: 0;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 1.3rem;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #2d2d2d;
+  margin-bottom: 0.6rem;
+  transition: background-color 0.2s;
+  border: 1px solid #404040;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+li:hover {
+  background-color: #353535;
+}
+
+li.editavel {
+  cursor: pointer;
+}
+
+li.editavel::after {
+  content: "✏️";
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+li.editavel:hover::after {
+  opacity: 0.8;
+}
+
+a {
+  color: #4da6ff;
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+a:active {
+  color: #66b3ff;
+}
+
+.arquivo-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.3rem;
+}
+
+.arquivo-descricao {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  font-weight: 400;
+}
+
+.pasta-item {
+  font-weight: 500;
+}
+
+.arquivo-capa {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.arquivo-sem-capa {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #404040;
+  border-radius: 6px;
+  font-size: 2rem;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.arquivo-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.botao-capa {
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  background-color: #404040;
+  color: #e0e0e0;
+  border: 1px solid #555555;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.botao-capa:hover {
+  background-color: #4a4a4a;
+}
+
+.editor-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #e9ecef;
+}
+
+.editor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.editor-titulo {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.botoes {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+button, .botao {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s;
+}
+
+.botao-salvar {
+  background-color: #0d7377;
+  color: white;
+}
+
+.botao-salvar:hover {
+  background-color: #0a5d61;
+}
+
+.botao-cancelar {
+  background-color: #6c757d;
+  color: white;
+}
+
+.botao-cancelar:hover {
+  background-color: #545b62;
+}
+
+.botao-remover-capa {
+  background-color: #dc3545;
+  color: white;
+}
+
+.botao-remover-capa:hover {
+  background-color: #c82333;
+}
+
+textarea {
+  width: 100%;
+  min-height: 400px;
+  padding: 1rem;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  resize: vertical;
+  box-sizing: border-box;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #4da6ff;
+  box-shadow: 0 0 0 2px rgba(77, 166, 255, 0.2);
+}
+
+.mensagem {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.mensagem.sucesso {
+  background-color: #1b4332;
+  border: 1px solid #2d5a41;
+  color: #74c69d;
+}
+
+.mensagem.erro {
+  background-color: #4a1e1e;
+  border: 1px solid #6b2c2c;
+  color: #ff8a80;
+}
+
+.botao-novo {
+  background-color: #0d7377;
+  color: white;
+}
+
+.botao-novo:hover {
+  background-color: #0a5d61;
+}
+
+.form-novo, .capa-container {
+  background-color: #2d2d2d;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid #404040;
+}
+
+.form-grupo {
+  margin-bottom: 1rem;
+}
+
+.form-grupo label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #e0e0e0;
+}
+
+.form-grupo input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #404040;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.form-grupo input:focus {
+  outline: none;
+  border-color: #4da6ff;
+  box-shadow: 0 0 0 2px rgba(77, 166, 255, 0.2);
+}
+
+.form-ajuda {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  margin-top: 0.25rem;
+}
+
+.cabecalho-secao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.controles-ordenacao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.botao-ordenacao {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  background-color: #404040;
+  color: #e0e0e0;
+  border: 1px solid #555555;
+}
+
+.botao-ordenacao:hover {
+  background-color: #4a4a4a;
+}
+
+.botao-ordenacao.ativo {
+  background-color: #4da6ff;
+  color: white;
+  border-color: #4da6ff;
+}
+
+.label-ordenacao {
+  font-size: 0.9rem;
+  color: #b0b0b0;
+  font-weight: 500;
+}
+
+.upload-area {
+  background-color: #1e1e1e;
+  border: 2px dashed #404040;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.upload-area input[type="file"] {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #2d2d2d;
+  border: 1px solid #404040;
+  border-radius: 4px;
+  color: #e0e0e0;
+}
+
+.capa-preview {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.capa-placeholder {
+  width: 200px;
+  height: 200px;
+  background-color: #404040;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  opacity: 0.6;
+  margin: 0 auto;
+}
+
+/* Responsividade */
+@media (min-width: 600px) {
+  body {
+    max-width: 800px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 599px) {
+  .editor-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .botoes {
+    justify-content: stretch;
+  }
+  
+  button, .botao {
+    flex: 1;
+    text-align: center;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .arquivo-capa, .arquivo-sem-capa {
+    width: 120px;
+    height: 120px;
+  }
+}
